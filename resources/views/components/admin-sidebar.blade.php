@@ -148,7 +148,7 @@
                 </li>
 
                 <li class="{{ Request::routeIs('employee*') ? 'active' : '' }}">
-                    <a href="{{ route('employee.index') }}"><img src="/assets/img/icons/users1.svg" alt="img"><span>Teacher</span> </a>
+                    <a href="{{ route('employee.index') }}"><img src="/assets/img/icons/users1.svg" alt="img"><span>Employees</span> </a>
                 </li>
             </ul>
         </div>
