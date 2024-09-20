@@ -37,7 +37,7 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
-        <div class="mt-4">
+        {{-- <div class="mt-4">
 
             <div class="flex items-center justify-between">
 
@@ -54,6 +54,6 @@
 
             </div>
 
-        </div>
+        </div> --}}
     </form>
 </x-guest-layout>

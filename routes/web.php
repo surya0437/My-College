@@ -16,10 +16,16 @@ use App\Http\Controllers\Library\CategoryController;
 use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\AssignSubject\AssignSubjectController;
 use App\Http\Controllers\AcademicPeriod\AcademicPeriodController;
+use App\Http\Controllers\UserAuth\UserAuthController;
 
-Route::get('/', function () {
+Route::get('/login', function () {
     // return view('welcome');
     return redirect()->route('login');
+});
+
+Route::get('/', function () {
+    return view('index');
+    // return redirect()->route('login');
 });
 
 // Route::get('/dashboard', function () {
@@ -28,7 +34,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::post('/userLogin', [UserAuthController::class, 'login'])->name('userLogin');
 
 
 Route::middleware('auth')->group(function () {

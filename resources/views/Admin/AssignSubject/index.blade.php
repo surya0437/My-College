@@ -106,7 +106,10 @@
                                 <select class="select select2-hidden-accessible" tabindex="-1" aria-hidden="true"
                                     name="academic_period_id">
                                     @foreach ($academicPeriods as $academicPeriod)
-                                        <option value="{{ $academicPeriod->id }}">{{ $academicPeriod->title }}</option>
+                                        @if ($subject->status == 1)
+                                            <option value="{{ $academicPeriod->id }}">{{ $academicPeriod->title }}
+                                            </option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
