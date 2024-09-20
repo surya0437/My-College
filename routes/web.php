@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Employee;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
@@ -14,14 +15,15 @@ use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\Library\CategoryController;
 use App\Http\Controllers\Employee\EmployeeController;
+use App\Http\Controllers\UserAuth\UserAuthController;
 use App\Http\Controllers\AssignSubject\AssignSubjectController;
 use App\Http\Controllers\AcademicPeriod\AcademicPeriodController;
-use App\Http\Controllers\UserAuth\UserAuthController;
 
 Route::get('/login', function () {
     // return view('welcome');
     return redirect()->route('login');
-});
+})->name('adminLoginPage');
+
 
 Route::get('/', function () {
     return view('index');
@@ -32,9 +34,13 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('/userLogin', [UserAuthController::class, 'login'])->name('userLogin');
+
+Route::get('student/dashboard', [DashboardController::class, 'studentDashboard'])->middleware('users')->name('student.dashboard');
+Route::get('staff/dashboard', [DashboardController::class, 'staffDashboard'])->middleware('users')->name('staff.dashboard');
+
 
 
 Route::middleware('auth')->group(function () {

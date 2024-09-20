@@ -93,8 +93,10 @@
                                 <label>Program <span class="text-danger">*</span></label>
                                 <select class="select select2-hidden-accessible" tabindex="-1" aria-hidden="true"
                                     name="program_id">
-                                    @foreach ($programs as $programs)
-                                        <option value="{{ $programs->id }}">{{ $programs->title }}</option>
+                                    @foreach ($programs as $program)
+                                        @if ($program->status == 1)
+                                            <option value="{{ $program->id }}">{{ $program->title }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                             </div>
@@ -106,7 +108,7 @@
                                 <select class="select select2-hidden-accessible" tabindex="-1" aria-hidden="true"
                                     name="academic_period_id">
                                     @foreach ($academicPeriods as $academicPeriod)
-                                        @if ($subject->status == 1)
+                                        @if ($academicPeriod->status == 1)
                                             <option value="{{ $academicPeriod->id }}">{{ $academicPeriod->title }}
                                             </option>
                                         @endif

@@ -26,51 +26,28 @@ class DashboardController extends Controller
         return view('dashboard', compact('users', 'books', 'categories', 'authors', 'racks'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function studentDashboard()
     {
-        //
+
+        $users = User::count();
+        $books = Book::count();
+        $categories = Category::count();
+        $authors = Author::count();
+        $racks = Rack::count();
+        return view('StudentDashboard.dashboard', compact('users', 'books', 'categories', 'authors', 'racks'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function staffDashboard()
     {
-        //
+
+        // $users = User::count();
+        // $books = Book::count();
+        // $categories = Category::count();
+        // $authors = Author::count();
+        // $racks = Rack::count();
+        // return view('StaffDashboard.dashboard', compact('users', 'books', 'categories', 'authors', 'racks'));
+        return view('StaffDashboard.dashboard');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
