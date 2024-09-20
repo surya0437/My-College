@@ -7,6 +7,7 @@ use App\Models\Program;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class StudentController extends Controller
@@ -57,7 +58,7 @@ class StudentController extends Controller
             $student->phone = $request->phone;
             $student->email = $request->email;
             $student->address = $request->address;
-            $student->password = $request->password;
+            $student->password = Hash::make($request->password);
             $student->date_of_birth = $request->date_of_birth;
             $student->program_id = $request->program_id;
             $student->shift_id = $request->shift_id;
@@ -81,7 +82,7 @@ class StudentController extends Controller
             $error = collect($errors)->flatten()->first();
 
             Alert::error('Error!', $error);
-            return redirect()->route('student.index');
+            return redirect()->route('employee.create');
         }
     }
 

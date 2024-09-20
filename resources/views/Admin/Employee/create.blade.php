@@ -1,12 +1,12 @@
-<x-app-layout :PageTitle="'Add Teacher'">
+<x-app-layout :PageTitle="'Add Employee'">
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('teacher.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('employee.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="d-flex align-items-center justify-content-between">
-                        <h4 class="card-title">Add Teacher</h4>
-                        <a href="{{ route('teacher.index') }}" type="button"
+                        <h4 class="card-title">Add Employee</h4>
+                        <a href="{{ route('employee.index') }}" type="button"
                             class="btn btn-primary d-flex align-items-center justify-content-between">
                             <i class="fa fa-arrow-left" style="margin-right: 10px;"></i>
                             <p>
@@ -51,7 +51,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Education<span class="text-danger">*</span></label>
-                                <input type="education" class="form-control" name="education" value="{{ old('education') } }}">
+                                <input type="education" class="form-control" name="education" value="{{ old('education') }}">
                             </div>
                         </div>
 
@@ -72,7 +72,19 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Image<span class="text-danger">*</span></label>
-                                <input type="file" class="form-control" name="image">
+                                <input type="file" class="form-control" name="image" accept="image/*">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Role <span class="text-danger">*</span></label>
+                                <select class="select select2-hidden-accessible" tabindex="-1" aria-hidden="true"
+                                    name="role">
+                                    <option value="Teacher">Teacher</option>
+                                    <option value="Accountant">Accountant</option>
+                                    <option value="Librarian">Librarian</option>
+                                </select>
                             </div>
                         </div>
 

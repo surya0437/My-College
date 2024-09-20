@@ -160,7 +160,6 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         unlink(public_path($book->image));
-
         $book->delete();
         Alert::success('Success', 'Record deleted successfully');
         return redirect()->route('category.index');

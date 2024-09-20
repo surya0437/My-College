@@ -19,7 +19,6 @@
 
     <ul class="nav user-menu">
 
-
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
                 <span class="user-img">
@@ -67,10 +66,9 @@
         <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
             aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
         <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="{{ route('profile.edit') }}"> <i class="me-2"
-                data-feather="user"></i>
-            My
-            Profile</a>
+            <a class="dropdown-item" href="{{ route('profile.edit') }}"> <i class="me-2" data-feather="user"></i>
+                My
+                Profile</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
@@ -91,14 +89,30 @@
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
 
-
             <ul>
                 <li class="{{ Request::routeIs('dashboard*') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}"><img src="/assets/img/icons/dashboard.svg" alt="img"><span>Dashboard</span> </a>
+                    <a href="{{ route('dashboard') }}"><img src="/assets/img/icons/dashboard.svg"
+                            alt="img"><span>Dashboard</span> </a>
+                </li>
+                <li class="submenu ">
+                    <a href="javascript:void(0);"><img src="/assets/img/icons/users1.svg" alt="img"><span>
+                            People</span> <span class="menu-arrow"></span></a>
+                    <ul>
+
+                        <li class="{{ Request::routeIs('student*') ? 'active' : '' }}">
+                            <a href="{{ route('student.index') }}"><span>Student</span> </a>
+                        </li>
+
+                        <li class="{{ Request::routeIs('employee*') ? 'active' : '' }}">
+                            <a href="{{ route('employee.index') }}"><span>Employee</span> </a>
+                        </li>
+                        <li class="{{ Request::routeIs('teacher*') ? 'active' : '' }}">
+                            <a href="{{ route('teacher.get') }}"><span>Teacher</span> </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="submenu">
-                    <a href="javascript:void(0);"><img src="/assets/img/icons/book.svg"
-                            alt="img"><span>
+                    <a href="javascript:void(0);"><img src="/assets/img/icons/book.svg" alt="img"><span>
                             Library</span> <span class="menu-arrow"></span></a>
                     <ul>
                         <li>
@@ -136,19 +150,28 @@
                 </li>
 
                 <li class="{{ Request::routeIs('program*') ? 'active' : '' }}">
-                    <a href="{{ route('program.index') }}"><img src="/assets/img/icons/program.svg" alt="img"><span>Program</span> </a>
+                    <a href="{{ route('program.index') }}"><img src="/assets/img/icons/program.svg"
+                            alt="img"><span>Program</span> </a>
                 </li>
 
                 <li class="{{ Request::routeIs('shift*') ? 'active' : '' }}">
-                    <a href="{{ route('shift.index') }}"><img src="/assets/img/icons/program.svg" alt="img"><span>Shift</span> </a>
+                    <a href="{{ route('shift.index') }}"><img src="/assets/img/icons/program.svg"
+                            alt="img"><span>Shift</span> </a>
                 </li>
 
-                <li class="{{ Request::routeIs('student*') ? 'active' : '' }}">
-                    <a href="{{ route('student.index') }}"><img src="/assets/img/icons/users1.svg" alt="img"><span>Student</span> </a>
+                <li class="{{ Request::routeIs('academicPeriod*') ? 'active' : '' }}">
+                    <a href="{{ route('academicPeriod.index') }}"><img src="/assets/img/icons/users1.svg"
+                            alt="img"><span>Academic Period</span> </a>
                 </li>
 
-                <li class="{{ Request::routeIs('employee*') ? 'active' : '' }}">
-                    <a href="{{ route('employee.index') }}"><img src="/assets/img/icons/users1.svg" alt="img"><span>Employees</span> </a>
+                <li class="{{ Request::routeIs('subject*') ? 'active' : '' }}">
+                    <a href="{{ route('subject.index') }}"><img src="/assets/img/icons/users1.svg"
+                            alt="img"><span>Subject</span> </a>
+                </li>
+
+                <li class="{{ Request::routeIs('assignSubject*') ? 'active' : '' }}">
+                    <a href="{{ route('assignSubject.index') }}"><img src="/assets/img/icons/users1.svg"
+                            alt="img"><span>Assign Subject</span> </a>
                 </li>
             </ul>
         </div>

@@ -1,9 +1,9 @@
-<x-app-layout :PageTitle="'Employee'">
+<x-app-layout :PageTitle="'Teacher'">
 
     <div class="col-sm-12">
         <div class="card">
             <div class="py-3 card-header d-flex align-items-center justify-content-between">
-                <h4 class="card-title">Listed Employee</h4>
+                <h4 class="card-title">Listed Teacher</h4>
                 <a href="{{ route('employee.create') }}" class="btn btn-primary d-flex align-items-center justify-content-center">
                     <img src="/assets/img/icons/plus1.svg" alt="img"><span>
                         Add New</span>
@@ -19,8 +19,8 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
-                                <th>Shift</th>
                                 <th>Role</th>
+                                <th>Shift</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,8 +34,8 @@
                                         <td>{{ $employee->name }}</td>
                                         <td>{{ $employee->email }}</td>
                                         <td>{{ $employee->phone }}</td>
-                                        <td>{{ $employee->shift->title }}</td>
                                         <td>{{ $employee->role }}</td>
+                                        <td>{{ $employee->shift->title }}</td>
                                         <td>
                                             <a href="{{ route('employee.edit', $employee->id) }}" class="">
                                                 <i class="text-primary fe fe-edit-3 h5"></i>

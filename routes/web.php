@@ -11,8 +11,11 @@ use App\Http\Controllers\User\UserBookController;
 use App\Http\Controllers\Library\AuthorController;
 use App\Http\Controllers\Program\ProgramController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\Library\CategoryController;
 use App\Http\Controllers\Employee\EmployeeController;
+use App\Http\Controllers\AssignSubject\AssignSubjectController;
+use App\Http\Controllers\AcademicPeriod\AcademicPeriodController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -44,6 +47,13 @@ Route::resource('admin/program', ProgramController::class)->names('program');
 Route::resource('admin/shift', ShiftController::class)->names('shift');
 Route::resource('admin/student', StudentController::class)->names('student');
 Route::resource('admin/employee', EmployeeController::class)->names('employee');
+
+Route::get('admin/teacher', [EmployeeController::class, 'GetTeacher'])->name('teacher.get');
+
+Route::resource('admin/academicPeriod', AcademicPeriodController::class)->names('academicPeriod');
+Route::resource('admin/subject', SubjectController::class)->names('subject');
+Route::resource('admin/assignSubject', AssignSubjectController::class)->names('assignSubject');
+
 
 
 

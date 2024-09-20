@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :PageTitle="'Books'">
     @foreach ($books as $book)
     <div class="col-12 col-md-6 col-lg-4 d-flex">
         <div class="bg-white card flex-fill">
