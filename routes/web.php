@@ -11,11 +11,16 @@ use App\Http\Controllers\Library\RackController;
 use App\Http\Controllers\User\UserBookController;
 use App\Http\Controllers\Library\AuthorController;
 use App\Http\Controllers\Program\ProgramController;
+use App\Http\Controllers\Staff\StaffBookController;
+use App\Http\Controllers\Staff\StaffRackController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\Library\CategoryController;
 use App\Http\Controllers\Employee\EmployeeController;
-use App\Http\Controllers\UserAuth\UserAuthController;
+use App\Http\Controllers\Staff\StaffAuthorController;
+use App\Http\Controllers\Staff\StaffStudentController;
+use App\Http\Controllers\Staff\StaffSubjectController;
+use App\Http\Controllers\Staff\StaffCategoryController;
 use App\Http\Controllers\AssignSubject\AssignSubjectController;
 use App\Http\Controllers\AcademicPeriod\AcademicPeriodController;
 
@@ -36,12 +41,6 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-
-Route::get('student/dashboard', [DashboardController::class, 'studentDashboard'])->middleware('users')->name('student.dashboard');
-Route::get('staff/dashboard', [DashboardController::class, 'staffDashboard'])->middleware('users')->name('staff.dashboard');
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -66,12 +65,26 @@ Route::resource('admin/academicPeriod', AcademicPeriodController::class)->names(
 Route::resource('admin/subject', SubjectController::class)->names('subject');
 Route::resource('admin/assignSubject', AssignSubjectController::class)->names('assignSubject');
 
-
-
-
-
 Route::get('/user/book', [UserBookController::class, 'index'])->name('UserBook');
 
 
 
+// ==================================Staff Routes===============================
+Route::resource('staff/student', StaffStudentController::class)->names('staff.student');
+Route::resource('staff/library/category', StaffCategoryController::class)->names('staff.category');
+Route::resource('staff/library/author', StaffAuthorController::class)->names('staff.author');
+Route::resource('staff/library/rack', StaffRackController::class)->names('staff.rack');
+Route::resource('staff/library/book', StaffBookController::class)->names('staff.book');
+Route::resource('staff/subject', StaffSubjectController::class)->names('staff.subject');
+
+
+
+
+
+
+
+
+
+
 require __DIR__ . '/auth.php';
+require __DIR__ . '/staff-auth.php';

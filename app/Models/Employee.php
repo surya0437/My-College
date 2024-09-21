@@ -9,6 +9,8 @@ class Employee extends Authenticatable
 {
     use HasFactory;
 
+    protected $guard = 'staff';
+
     public function shift()
     {
         return $this->belongsTo(Shift::class);

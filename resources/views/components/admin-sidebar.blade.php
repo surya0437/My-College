@@ -34,7 +34,7 @@
                         </span> --}}
 
                         <div class="profilesets">
-                            
+
                                 <h6>{{ Auth::user()->name }}</h6>
                                 <h5>Admin</h5>
                         </div>

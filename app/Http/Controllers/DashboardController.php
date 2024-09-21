@@ -26,27 +26,9 @@ class DashboardController extends Controller
         return view('dashboard', compact('users', 'books', 'categories', 'authors', 'racks'));
     }
 
-    public function studentDashboard()
+    public function StaffDashboard()
     {
-
-        $users = User::count();
-        $books = Book::count();
-        $categories = Category::count();
-        $authors = Author::count();
-        $racks = Rack::count();
-        return view('StudentDashboard.dashboard', compact('users', 'books', 'categories', 'authors', 'racks'));
-    }
-
-    public function staffDashboard()
-    {
-
-        // $users = User::count();
-        // $books = Book::count();
-        // $categories = Category::count();
-        // $authors = Author::count();
-        // $racks = Rack::count();
-        // return view('StaffDashboard.dashboard', compact('users', 'books', 'categories', 'authors', 'racks'));
-        return view('StaffDashboard.dashboard');
+        return view('Staff.dashboard');
     }
 
 
