@@ -20,4 +20,9 @@ class Employee extends Authenticatable
     {
         return $this->hasMany(AssignSubject::class);
     }
+
+    public function leaves()
+    {
+        return $this->hasMany(Leave::class);
+    }
 }

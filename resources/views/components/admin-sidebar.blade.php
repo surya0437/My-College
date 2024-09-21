@@ -174,6 +174,12 @@
                     <a href="{{ route('assignSubject.index') }}"><img src="/assets/img/icons/users1.svg"
                             alt="img"><span>Assign Subject</span> </a>
                 </li>
+
+
+                <li class="{{ Request::routeIs('leave*') ? 'active' : '' }}">
+                    <a href="{{ route('leave.index') }}"><img src="/assets/img/icons/users1.svg"
+                            alt="img"><span>Staff Leave</span> </a>
+                </li>
             </ul>
         </div>
     </div>
