@@ -40,10 +40,10 @@
                                             <a href="{{ route('staff.student.edit', $student->id) }}" class="">
                                                 <i class="text-primary fe fe-edit-3 h5"></i>
                                             </a>
-                                            <a href="{{ route('staff.student.destroy', $student->id) }}" class="mx-3"
+                                            {{-- <a href="{{ route('staff.student.destroy', $student->id) }}" class="mx-3"
                                                 data-confirm-delete="true">
                                                 <i class="text-danger fe fe-trash-2 h5"></i>
-                                            </a>
+                                            </a> --}}
 
                                         </td>
                                     </tr>
