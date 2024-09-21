@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Rack;
-use App\Models\Author;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Leave;
+use App\Models\Author;
+use App\Models\Student;
+use App\Models\Subject;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -28,8 +32,9 @@ class DashboardController extends Controller
 
     public function StaffDashboard()
     {
-        return view('Staff.dashboard');
+        $students = Student::count();
+        $subjects = Subject::count();
+        $leaves = Leave::where('employee_id', '=', Auth::guard('staff')->user()->id)->count();
+        return view('Staff.dashboard', compact('students', 'subjects', 'leaves'));
     }
-
-
 }

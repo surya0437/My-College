@@ -1,10 +1,10 @@
 <x-staff-app-layout :PageTitle="'Dashboard'">
 
-    {{-- <div class="col-lg-3 col-sm-6 col-12 d-flex">
+    <div class="col-lg-3 col-sm-6 col-12 d-flex">
         <div class="dash-count">
             <div class="dash-counts">
-                <h4>{{ $users }}</h4>
-                <h5>Users</h5>
+                <h4>{{ $students }}</h4>
+                <h5>Students</h5>
             </div>
             <div class="dash-imgs">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -20,8 +20,8 @@
     <div class="col-lg-3 col-sm-6 col-12 d-flex">
         <div class="dash-count das2">
             <div class="dash-counts">
-                <h4>{{ $categories }}</h4>
-                <h5>Category</h5>
+                <h4>{{ $subjects }}</h4>
+                <h5>Subjects</h5>
             </div>
             <div class="dash-imgs">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff"
@@ -37,8 +37,8 @@
     <div class="col-lg-3 col-sm-6 col-12 d-flex">
         <div class="dash-count das1">
             <div class="dash-counts">
-                <h4>{{ $authors }}</h4>
-                <h5>Authors</h5>
+                <h4>{{ $leaves }}</h4>
+                <h5>Leaves</h5>
             </div>
             <div class="dash-imgs">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -55,8 +55,8 @@
     <div class="col-lg-3 col-sm-6 col-12 d-flex">
         <div class="dash-count das4">
             <div class="dash-counts">
-                <h4>{{ $racks }}</h4>
-                <h5>Racks</h5>
+                <h4>12</h4>
+                <h5>Notes</h5>
             </div>
             <div class="dash-imgs">
 
@@ -74,7 +74,7 @@
         </div>
     </div>
 
-    <div class="col-lg-3 col-sm-6 col-12 d-flex">
+    {{-- <div class="col-lg-3 col-sm-6 col-12 d-flex">
         <div class="dash-count das3">
             <div class="dash-counts">
                 <h4>{{ $books }}</h4>
@@ -91,9 +91,4 @@
         </div>
     </div> --}}
 
-
-
-
-    {{ Auth::user()->name }}
-    {{ Auth::user()->role }}
 </x-staff-app-layout>
