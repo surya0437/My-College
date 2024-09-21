@@ -21,7 +21,7 @@
                                 <th>Phone</th>
                                 <th>Program</th>
                                 <th>Shift</th>
-                                <th>Action</th>
+                                {{-- <th>Action</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -36,16 +36,16 @@
                                         <td>{{ $student->phone }}</td>
                                         <td>{{ $student->program->title }}</td>
                                         <td>{{ $student->shift->title }}</td>
-                                        <td>
+                                        {{-- <td>
                                             <a href="{{ route('staff.student.edit', $student->id) }}" class="">
                                                 <i class="text-primary fe fe-edit-3 h5"></i>
                                             </a>
-                                            {{-- <a href="{{ route('staff.student.destroy', $student->id) }}" class="mx-3"
+                                            <a href="{{ route('staff.student.destroy', $student->id) }}" class="mx-3"
                                                 data-confirm-delete="true">
                                                 <i class="text-danger fe fe-trash-2 h5"></i>
-                                            </a> --}}
+                                            </a>
 
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             @endif
