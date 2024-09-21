@@ -100,10 +100,27 @@
                     <a href="{{ route('staff.dashboard') }}"><img src="/assets/img/icons/dashboard.svg"
                             alt="img"><span>Dashboard</span> </a>
                 </li>
-                <li class="{{ Request::routeIs('staff.student*') ? 'active' : '' }}">
-                    <a href="{{ route('staff.student.index') }}"><img src="/assets/img/icons/users1.svg"
-                            alt="img"><span>Student</span> </a>
-                </li>
+                @if (Auth::guard('staff')->user()->role == 'Teacher')
+                    <li class="{{ Request::routeIs('staff.student*') ? 'active' : '' }}">
+                        <a href="{{ route('staff.student.index') }}"><img src="/assets/img/icons/users1.svg"
+                                alt="img"><span>Student</span> </a>
+                    </li>
+                    <li class="{{ Request::routeIs('staff.subject*') ? 'active' : '' }}">
+                        <a href="{{ route('staff.subject.index') }}"><img src="/assets/img/icons/subject1.svg"
+                                alt="img"><span>Subject</span> </a>
+                    </li>
+
+                    <li class="{{ Request::routeIs('staff.subject*') ? 'active' : '' }}">
+                        <a href="{{ route('staff.subject.index') }}"><img src="/assets/img/icons/notes.svg"
+                                alt="img"><span>Notes</span> </a>
+                    </li>
+
+                    <li class="{{ Request::routeIs('staff.leave*') ? 'active' : '' }}">
+                        <a href="{{ route('staff.leave.index') }}"><img src="/assets/img/icons/leave.svg"
+                                alt="img"><span>Leave</span> </a>
+                    </li>
+                @endif
+
                 @if (Auth::guard('staff')->user()->role == 'Librarian')
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="/assets/img/icons/book.svg" alt="img"><span>
@@ -127,7 +144,6 @@
                                         Rack</span> </a>
                             </li>
 
-
                             <li>
                                 <a href="{{ route('staff.book.index') }}"
                                     class="{{ Request::routeIs('staff.book*') ? 'active' : '' }}"><span>
@@ -137,15 +153,7 @@
                         </ul>
                     </li>
                 @endif
-                <li class="{{ Request::routeIs('staff.subject*') ? 'active' : '' }}">
-                    <a href="{{ route('staff.subject.index') }}"><img src="/assets/img/icons/subject.svg"
-                            alt="img"><span>Subject</span> </a>
-                </li>
 
-                <li class="{{ Request::routeIs('staff.leave*') ? 'active' : '' }}">
-                    <a href="{{ route('staff.leave.index') }}"><img src="/assets/img/icons/subject.svg"
-                            alt="img"><span>Leave</span> </a>
-                </li>
 
             </ul>
         </div>

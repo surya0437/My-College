@@ -156,28 +156,28 @@
                 </li>
 
                 <li class="{{ Request::routeIs('shift*') ? 'active' : '' }}">
-                    <a href="{{ route('shift.index') }}"><img src="/assets/img/icons/program.svg"
+                    <a href="{{ route('shift.index') }}"><img src="/assets/img/icons/shift.svg"
                             alt="img"><span>Shift</span> </a>
                 </li>
 
                 <li class="{{ Request::routeIs('academicPeriod*') ? 'active' : '' }}">
-                    <a href="{{ route('academicPeriod.index') }}"><img src="/assets/img/icons/users1.svg"
+                    <a href="{{ route('academicPeriod.index') }}"><img src="/assets/img/icons/shift.svg"
                             alt="img"><span>Academic Period</span> </a>
                 </li>
 
                 <li class="{{ Request::routeIs('subject*') ? 'active' : '' }}">
-                    <a href="{{ route('subject.index') }}"><img src="/assets/img/icons/users1.svg"
+                    <a href="{{ route('subject.index') }}"><img src="/assets/img/icons/subject1.svg"
                             alt="img"><span>Subject</span> </a>
                 </li>
 
                 <li class="{{ Request::routeIs('assignSubject*') ? 'active' : '' }}">
-                    <a href="{{ route('assignSubject.index') }}"><img src="/assets/img/icons/users1.svg"
+                    <a href="{{ route('assignSubject.index') }}"><img src="/assets/img/icons/assignsubject.svg"
                             alt="img"><span>Assign Subject</span> </a>
                 </li>
 
 
                 <li class="{{ Request::routeIs('leave*') ? 'active' : '' }}">
-                    <a href="{{ route('leave.index') }}"><img src="/assets/img/icons/users1.svg"
+                    <a href="{{ route('leave.index') }}"><img src="/assets/img/icons/leave.svg"
                             alt="img"><span>Staff Leave</span> </a>
                 </li>
             </ul>
