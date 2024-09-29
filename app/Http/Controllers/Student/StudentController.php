@@ -24,6 +24,14 @@ class StudentController extends Controller
         return view('Admin.Student.index', compact('programs', 'shifts', 'students'));
     }
 
+    public function AddFace()
+    {
+        $programs = Program::all();
+        $shifts = Shift::all();
+        $students = Student::all();
+
+        return view('Admin.Student.studentFace', compact('programs', 'shifts', 'students'));
+    }
     /**
      * Show the form for creating a new resource.
      */

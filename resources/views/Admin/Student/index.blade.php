@@ -3,11 +3,17 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="py-3 card-header d-flex align-items-center justify-content-between">
-                <h4 class="card-title">Listed student</h4>
-                <a href="{{ route('student.create') }}" class="btn btn-primary d-flex align-items-center justify-content-center">
-                    <img src="/assets/img/icons/plus1.svg" alt="img"><span>
-                        Add New</span>
-                </a>
+                <h4 class="card-title">Listed Student</h4>
+                <div class="d-flex align-items-center">
+                    <a href="{{ route('student.addFace') }}" class="mx-3 btn btn-primary d-flex align-items-center justify-content-center">
+                        <img src="/assets/img/icons/plus1.svg" alt="img"><span>
+                            Add Face</span>
+                    </a>
+                    <a href="{{ route('student.create') }}" class="btn btn-primary d-flex align-items-center justify-content-center">
+                        <img src="/assets/img/icons/plus1.svg" alt="img"><span>
+                            Add New</span>
+                    </a>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

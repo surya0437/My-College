@@ -9,7 +9,7 @@
         content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Books Space</title>
+    <title>College Management System</title>
 
     <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">

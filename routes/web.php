@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
@@ -24,60 +25,52 @@ use App\Http\Controllers\Staff\StaffCategoryController;
 use App\Http\Controllers\AssignSubject\AssignSubjectController;
 use App\Http\Controllers\AcademicPeriod\AcademicPeriodController;
 
-Route::get('/login', function () {
-    // return view('welcome');
-    return redirect()->route('login');
-})->name('adminLoginPage');
-
-
 Route::get('/', function () {
-    return view('index');
-    // return redirect()->route('login');
-});
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+    // return view('index');
+    return redirect()->route('staff.login');
+})->middleware('guest:staff');
 
 
-Route::get('/dashboard', [DashboardController::class, 'AdminDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth:web', 'verified'])->group(function () {
+
+    Route::get('/dashboard', [DashboardController::class, 'AdminDashboard'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('library/category', CategoryController::class)->names('category');
+    Route::resource('library/author', AuthorController::class)->names('author');
+    Route::resource('library/rack', RackController::class)->names('rack');
+    Route::resource('library/book', BookController::class)->names('book');
+    Route::resource('admin/program', ProgramController::class)->names('program');
+    Route::resource('admin/shift', ShiftController::class)->names('shift');
+    Route::resource('admin/student', StudentController::class)->names('student');
+    Route::resource('admin/employee', EmployeeController::class)->names('employee');
+    Route::get('admin/teacher', [EmployeeController::class, 'GetTeacher'])->name('teacher.get');
+    Route::resource('admin/academicPeriod', AcademicPeriodController::class)->names('academicPeriod');
+    Route::resource('admin/subject', SubjectController::class)->names('subject');
+    Route::resource('admin/assignSubject', AssignSubjectController::class)->names('assignSubject');
+    Route::resource('admin/leave', LeaveController::class)->names('leave');
+
+    Route::get('/admin/addFace', [StudentController::class, 'AddFace'])->name('student.addFace');
 });
 
 
-Route::resource('library/category', CategoryController::class)->names('category');
-Route::resource('library/author', AuthorController::class)->names('author');
-Route::resource('library/rack', RackController::class)->names('rack');
-Route::resource('library/book', BookController::class)->names('book');
-Route::resource('admin/program', ProgramController::class)->names('program');
-Route::resource('admin/shift', ShiftController::class)->names('shift');
-Route::resource('admin/student', StudentController::class)->names('student');
-Route::resource('admin/employee', EmployeeController::class)->names('employee');
-Route::get('admin/teacher', [EmployeeController::class, 'GetTeacher'])->name('teacher.get');
-Route::resource('admin/academicPeriod', AcademicPeriodController::class)->names('academicPeriod');
-Route::resource('admin/subject', SubjectController::class)->names('subject');
-Route::resource('admin/assignSubject', AssignSubjectController::class)->names('assignSubject');
-Route::resource('admin/leave', LeaveController::class)->names('leave');
-
 Route::get('/user/book', [UserBookController::class, 'index'])->name('UserBook');
 
-
-
 // ==================================Staff Routes===============================
-Route::resource('staff/student', StaffStudentController::class)->names('staff.student');
-Route::resource('staff/library/category', StaffCategoryController::class)->names('staff.category');
-Route::resource('staff/library/author', StaffAuthorController::class)->names('staff.author');
-Route::resource('staff/library/rack', StaffRackController::class)->names('staff.rack');
-Route::resource('staff/library/book', StaffBookController::class)->names('staff.book');
-Route::resource('staff/subject', StaffSubjectController::class)->names('staff.subject');
-Route::resource('staff/leave', StaffLeaveController::class)->names('staff.leave');
 
+Route::middleware('auth:staff')->group(function () {
 
-
+    Route::resource('staff/student', StaffStudentController::class)->names('staff.student');
+    Route::resource('staff/library/category', StaffCategoryController::class)->names('staff.category');
+    Route::resource('staff/library/author', StaffAuthorController::class)->names('staff.author');
+    Route::resource('staff/library/rack', StaffRackController::class)->names('staff.rack');
+    Route::resource('staff/library/book', StaffBookController::class)->names('staff.book');
+    Route::resource('staff/subject', StaffSubjectController::class)->names('staff.subject');
+    Route::resource('staff/leave', StaffLeaveController::class)->names('staff.leave');
+});
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/staff-auth.php';
