@@ -18,6 +18,11 @@ class Student extends Authenticatable
 
     public function shift()
     {
-        return $this->belongsTo(shift::class);
+        return $this->belongsTo(Shift::class);
+    }
+
+    public function studentAttendances()
+    {
+        return $this->hasMany(StudentAttendance::class);
     }
 }

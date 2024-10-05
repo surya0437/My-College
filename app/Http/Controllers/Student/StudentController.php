@@ -7,6 +7,7 @@ use App\Models\Program;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\StudentAttendance;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -172,4 +173,12 @@ class StudentController extends Controller
         Alert::success('Success', 'Record deleted successfully');
         return redirect()->route('student.index');
     }
+
+    public function attendace($id)
+    {
+        $student = Student::find($id);
+        $attendances = StudentAttendance::where('student_id', $id)->get();
+        return view('Admin.Student.attendance', compact('student', 'attendances'));
+    }
+
 }

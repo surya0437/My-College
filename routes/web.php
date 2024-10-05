@@ -10,6 +10,7 @@ use App\Http\Controllers\Library\BookController;
 use App\Http\Controllers\Library\RackController;
 use App\Http\Controllers\User\UserBookController;
 use App\Http\Controllers\Library\AuthorController;
+use App\Http\Controllers\Holiday\HolidayController;
 use App\Http\Controllers\Program\ProgramController;
 use App\Http\Controllers\Staff\StaffBookController;
 use App\Http\Controllers\Staff\StaffRackController;
@@ -52,8 +53,11 @@ Route::middleware(['auth:web', 'verified'])->group(function () {
     Route::resource('admin/subject', SubjectController::class)->names('subject');
     Route::resource('admin/assignSubject', AssignSubjectController::class)->names('assignSubject');
     Route::resource('admin/leave', LeaveController::class)->names('leave');
+    Route::resource('admin/holiday', HolidayController::class)->names('holiday');
 
     Route::get('/admin/addFace', [StudentController::class, 'AddFace'])->name('student.addFace');
+
+    Route::get('/admin/attendance/{id}', [StudentController::class, 'attendace'])->name('student.attendance');
 });
 
 

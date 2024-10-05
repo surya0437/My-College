@@ -3,8 +3,8 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="py-3 card-header d-flex align-items-center justify-content-between">
-                <h4 class="card-title">Listed Student</h4>
-                <div class="d-flex align-items-center">
+                <h4 class="card-title">Attendance of {{ $student->name }}</h4>
+                {{-- <div class="d-flex align-items-center">
                     <a href="{{ route('student.addFace') }}" class="mx-3 btn btn-primary d-flex align-items-center justify-content-center">
                         <img src="/assets/img/icons/plus1.svg" alt="img"><span>
                             Add Face</span>
@@ -13,7 +13,7 @@
                         <img src="/assets/img/icons/plus1.svg" alt="img"><span>
                             Add New</span>
                     </a>
-                </div>
+                </div> --}}
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -21,37 +21,31 @@
                         <thead>
                             <tr>
                                 <th>S.N</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Program</th>
-                                <th>Shift</th>
+                                <th>Date</th>
+                                <th>In time</th>
+                                {{-- <th>Out Time</th> --}}
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($students)
-                                @foreach ($students as $index => $student)
-
+                            {{-- @if (count($student->studentAttendances) > 0)
+                                @foreach ($student->studentAttendances as $index => $attendance) --}}
+                            @if (count($attendances) > 0)
+                                @foreach ($attendances as $index => $attendance)
                                     <tr>
                                         <td>{{ ++$index }}</td>
-                                        <td><img src="{{ asset($student->image) }}" alt="Student Image" class="rounded" style="width: 60px;"></td>
-                                        <td>{{ $student->name }}</td>
-                                        <td>{{ $student->email }}</td>
-                                        <td>{{ $student->phone }}</td>
-                                        <td>{{ $student->program->title }}</td>
-                                        <td>{{ $student->shift->title }}</td>
+                                        <td>{{ $attendance->date }}</td>
+                                        <td>{{ $attendance->time_in == null ? '--' : $attendance->time_in }}</td>
+                                        {{-- <td>{{ $attendance->time_out == null ? '--' : $attendance->time_out }}</td> --}}
+                                        <td>{{ $attendance->status }}</td>
                                         <td>
-                                            <a href="{{ route('student.edit', $student->id) }}" class="">
+                                            <a href="{{ route('student.edit', $attendance->id) }}" class="">
                                                 <i class="text-primary fe fe-edit-3 h5"></i>
                                             </a>
-                                            <a href="{{ route('student.destroy', $student->id) }}" class="mx-3"
+                                            <a href="{{ route('student.destroy', $attendance->id) }}" class="mx-3"
                                                 data-confirm-delete="true">
                                                 <i class="text-danger fe fe-trash-2 h5"></i>
-                                            </a>
-                                            <a href="{{ route('student.attendance', $student->id) }}" class="mx-3">
-                                                view
                                             </a>
 
                                         </td>

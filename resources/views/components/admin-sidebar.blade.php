@@ -175,10 +175,14 @@
                             alt="img"><span>Assign Subject</span> </a>
                 </li>
 
-
                 <li class="{{ Request::routeIs('leave*') ? 'active' : '' }}">
                     <a href="{{ route('leave.index') }}"><img src="/assets/img/icons/leave.svg"
                             alt="img"><span>Staff Leave</span> </a>
+                </li>
+
+                <li class="{{ Request::routeIs('holiday*') ? 'active' : '' }}">
+                    <a href="{{ route('holiday.index') }}"><img src="/assets/img/icons/leave.svg"
+                            alt="img"><span>Holiday</span> </a>
                 </li>
             </ul>
         </div>
