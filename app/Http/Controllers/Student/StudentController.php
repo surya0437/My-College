@@ -174,11 +174,19 @@ class StudentController extends Controller
         return redirect()->route('student.index');
     }
 
-    public function attendace($id)
+    public function attendance($id)
     {
         $student = Student::find($id);
         $attendances = StudentAttendance::where('student_id', $id)->get();
         return view('Admin.Student.attendance', compact('student', 'attendances'));
     }
 
+    public function changeStatus($id)
+    {
+        $attendance = StudentAttendance::find($id);
+        $attendance->status = $attendance->status == "Present" ? "Absent" : "Present";
+        $attendance->update();
+        toast('Status changed successfully', 'success');
+        return redirect()->back();
+    }
 }

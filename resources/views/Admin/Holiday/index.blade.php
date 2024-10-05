@@ -24,7 +24,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($holidays)
+                            @if (count($holidays) > 0)
                                 @foreach ($holidays as $index => $holiday)
                                     <tr>
                                         <td>{{ ++$index }}</td>

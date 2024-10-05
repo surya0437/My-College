@@ -64,7 +64,8 @@ Route::middleware(['auth:web', 'verified'])->group(function () {
 
     Route::get('/admin/addFace', [StudentController::class, 'AddFace'])->name('student.addFace');
 
-    Route::get('/admin/attendance/{id}', [StudentController::class, 'attendace'])->name('student.attendance');
+    Route::get('/admin/attendance/{id}', [StudentController::class, 'attendance'])->name('student.attendance');
+    Route::put('/admin/changeStatus/{id}', [StudentController::class, 'changeStatus'])->name('student.changeStatus');
 });
 
 

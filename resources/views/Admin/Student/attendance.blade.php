@@ -40,13 +40,19 @@
                                         {{-- <td>{{ $attendance->time_out == null ? '--' : $attendance->time_out }}</td> --}}
                                         <td>{{ $attendance->status }}</td>
                                         <td>
-                                            <a href="{{ route('student.edit', $attendance->id) }}" class="">
-                                                <i class="text-primary fe fe-edit-3 h5"></i>
-                                            </a>
-                                            <a href="{{ route('student.destroy', $attendance->id) }}" class="mx-3"
+                                            <form action="{{ route('student.changeStatus', $attendance->id) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('put')
+                                                <button class="" style="border: none; background-color: transparent">
+                                                    <i class="text-primary fe fe-edit-3 h5"></i>
+                                                </button>
+                                            </form>
+
+                                            {{-- <a href="{{ route('student.destroy', $attendance->id) }}" class="mx-3"
                                                 data-confirm-delete="true">
                                                 <i class="text-danger fe fe-trash-2 h5"></i>
-                                            </a>
+                                            </a> --}}
 
                                         </td>
                                     </tr>
