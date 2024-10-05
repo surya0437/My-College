@@ -26,7 +26,14 @@ use App\Http\Controllers\Staff\StaffCategoryController;
 use App\Http\Controllers\AssignSubject\AssignSubjectController;
 use App\Http\Controllers\AcademicPeriod\AcademicPeriodController;
 
+
 Route::get('/', function () {
+    // return view('index');
+    return view('index');
+});
+
+
+Route::get('/staff', function () {
     // return view('index');
     return redirect()->route('staff.login');
 })->middleware('guest:staff');
