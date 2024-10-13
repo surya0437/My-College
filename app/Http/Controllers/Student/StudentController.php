@@ -50,7 +50,7 @@ class StudentController extends Controller
     {
         try {
             $request->validate([
-                'name' => 'required|string|max:255',
+                'name' => 'required|string|regex:/^[a-zA-Z\s]+$/|max:255',
                 'phone' => 'required|string|max:20|unique:students',
                 'email' => 'required|string|email|max:255|unique:students',
                 'address' => 'required|string|max:255',
@@ -121,7 +121,7 @@ class StudentController extends Controller
     {
         try {
             $request->validate([
-                'name' => 'required|string|max:255',
+                'name' => 'required|string|regex:/^[a-zA-Z\s]+$/|max:255',
                 'phone' => 'required|string|max:20|unique:students,phone,' . $id,
                 'email' => 'required|string|email|max:255|unique:students,email,' . $id,
                 'address' => 'required|string|max:255',
